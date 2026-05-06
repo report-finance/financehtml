@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deneme Yatırım Yenilenebilir Enerji A.Ş. — Finansal Analiz Raporu 2023–2024</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy: #0B1628;
+  --navy2: #112040;
+  --navy3: #1A3060;
+  --cyan: #00C8B4;
+  --cyan2: #00A896;
+  --gold: #C9A84C;
+  --gold2: #E5C46A;
+  --white: #F5F7FA;
+  --muted: #8FA3BF;
+  --border: rgba(0,200,180,0.18);
+  --red: #E84855;
+  --orange: #F4A261;
+  --yellow: #F7CB45;
+  --green: #4CAF82;
+  --blue: #4EA8DE;
+  --critical: #E84855;
+  --page-w: 1100px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ─── NAVIGATION ─── */
+#nav {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 220px;
+  background: rgba(11,22,40,0.97);
+  border-right: 1px solid var(--border);
+  padding: 32px 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.nav-logo {
+  padding: 0 24px 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.nav-logo .co { font-size: 11px; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+.nav-logo .title { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--white); margin-top: 4px; line-height: 1.3; }
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 24px;
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+  text-decoration: none;
+}
+.nav-item:hover { color: var(--white); background: rgba(0,200,180,0.06); }
+.nav-item.active { color: var(--cyan); border-left-color: var(--cyan); background: rgba(0,200,180,0.08); }
+.nav-num { font-size: 10px; color: var(--muted); min-width: 18px; }
+.nav-footer {
+  margin-top: auto;
+  padding: 20px 24px 0;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ─── MAIN ─── */
+main {
+  margin-left: 220px;
+  min-height: 100vh;
+}
+
+/* ─── SECTIONS ─── */
+.section {
+  max-width: var(--page-w);
+  margin: 0 auto;
+  padding: 72px 48px;
+  border-bottom: 1px solid rgba(0,200,180,0.08);
+}
+
+/* ─── COVER ─── */
+#cover {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 64px;
+  max-width: none;
+  position: relative;
+  overflow: hidden;
+}
+#cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 40%, rgba(0,200,180,0.07) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.cover-inner { max-width: 720px; }
+.cover-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(232,72,85,0.15);
+  border: 1px solid rgba(232,72,85,0.35);
+  color: #FF8A94;
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 4px; margin-bottom: 28px;
+}
+.cover-badge span { width: 6px; height: 6px; border-radius: 50%; background: #FF8A94; }
+.cover-company { font-size: 13px; color: var(--cyan); letter-spacing: 3px; text-transform: uppercase; font-weight: 500; margin-bottom: 12px; }
+.cover-title { font-family: 'DM Serif Display', serif; font-size: 52px; line-height: 1.1; color: var(--white); margin-bottom: 8px; }
+.cover-subtitle { font-size: 20px; color: var(--muted); font-weight: 300; margin-bottom: 40px; }
+.cover-meta {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+  max-width: 560px; margin-bottom: 52px;
+}
+.cover-meta-item { background: var(--navy2); padding: 14px 20px; }
+.cover-meta-item .label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.cover-meta-item .val { font-size: 14px; font-weight: 500; color: var(--white); }
+
+/* Status scores */
+.score-grid { display: flex; gap: 16px; flex-wrap: wrap; }
+.score-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 24px;
+  min-width: 140px;
+  position: relative;
+  overflow: hidden;
+}
+.score-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.score-card.yellow::before { background: var(--yellow); }
+.score-card.red::before { background: var(--red); }
+.score-card.blue::before { background: var(--blue); }
+.score-card.green::before { background: var(--green); }
+.score-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.score-card .status { font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.dot.yellow { background: var(--yellow); }
+.dot.red { background: var(--red); }
+.dot.blue { background: var(--blue); }
+.dot.green { background: var(--green); }
+
+/* ─── SECTION HEADER ─── */
+.sec-header { margin-bottom: 36px; }
+.sec-num { font-size: 11px; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+.sec-title { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--white); }
+.sec-desc { color: var(--muted); margin-top: 8px; max-width: 600px; }
+.divider { width: 48px; height: 2px; background: var(--cyan); margin: 14px 0; }
+
+/* ─── FINDING CARDS ─── */
+.findings-grid { display: flex; flex-direction: column; gap: 2px; }
+.finding-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  display: grid; grid-template-columns: 56px 1fr 1fr; gap: 16px; align-items: start;
+}
+.finding-id { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--muted); }
+.finding-area { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+.finding-title { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+.finding-desc { font-size: 13px; color: rgba(245,247,250,0.7); line-height: 1.6; }
+.finding-rec { font-size: 13px; color: rgba(245,247,250,0.7); line-height: 1.6; }
+.finding-rec-label { font-size: 10px; color: var(--cyan); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 4px; }
+.priority-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 4px;
+}
+.priority-badge.high { background: rgba(232,72,85,0.15); color: var(--red); border: 1px solid rgba(232,72,85,0.3); }
+.priority-badge.mid { background: rgba(244,162,97,0.15); color: var(--orange); border: 1px solid rgba(244,162,97,0.3); }
+.priority-badge.low { background: rgba(76,175,130,0.12); color: var(--green); border: 1px solid rgba(76,175,130,0.25); }
+
+/* ─── TABLES ─── */
+.report-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.report-table th {
+  background: rgba(0,200,180,0.08);
+  color: var(--cyan);
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.report-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: rgba(245,247,250,0.85);
+  vertical-align: top;
+}
+.report-table tr:last-child td { border-bottom: none; }
+.report-table tr.strong td { font-weight: 600; color: var(--white); background: rgba(0,200,180,0.05); }
+.report-table tr:hover td { background: rgba(255,255,255,0.02); }
+.table-wrap {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.table-title { padding: 14px 18px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 500; color: var(--muted); }
+
+/* Change badges */
+.chg { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+.chg.pos { background: rgba(76,175,130,0.15); color: var(--green); }
+.chg.neg { background: rgba(232,72,85,0.12); color: var(--red); }
+.chg.neu { background: rgba(143,163,191,0.12); color: var(--muted); }
+
+/* Status badges */
+.sts { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; padding: 2px 9px; border-radius: 20px; white-space: nowrap; }
+.sts .dot { width: 7px; height: 7px; }
+.sts.cok-iyi { background: rgba(0,200,180,0.12); color: var(--cyan); }
+.sts.iyi { background: rgba(78,168,222,0.12); color: var(--blue); }
+.sts.orta { background: rgba(247,203,69,0.12); color: var(--yellow); }
+.sts.zayif { background: rgba(232,72,85,0.12); color: var(--red); }
+.sts.kritik { background: rgba(232,72,85,0.2); color: #FF6B75; border: 1px solid rgba(232,72,85,0.3); }
+
+/* ─── KPI GRID ─── */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 36px; }
+.kpi-card {
+  background: var(--navy2); border: 1px solid var(--border); border-radius: 10px; padding: 20px;
+  position: relative; overflow: hidden;
+}
+.kpi-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--cyan), transparent);
+  opacity: 0.5;
+}
+.kpi-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.kpi-val { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--white); line-height: 1; margin-bottom: 4px; }
+.kpi-sub { font-size: 12px; color: var(--muted); }
+.kpi-chg { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; margin-top: 6px; }
+
+/* ─── SCORECARD ─── */
+.scorecard-grid { display: flex; flex-direction: column; gap: 12px; }
+.scorecard-row {
+  display: grid; grid-template-columns: 200px 80px 80px 1fr 80px;
+  align-items: center; gap: 16px;
+  background: var(--navy2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px;
+}
+.scorecard-row.total {
+  background: rgba(0,200,180,0.08);
+  border-color: rgba(0,200,180,0.3);
+}
+.sc-label { font-size: 14px; color: var(--white); font-weight: 500; }
+.sc-weight { font-size: 13px; color: var(--muted); text-align: center; }
+.sc-score { font-family: 'DM Serif Display', serif; font-size: 22px; text-align: center; }
+.sc-bar { position: relative; height: 6px; background: rgba(255,255,255,0.07); border-radius: 3px; }
+.sc-bar-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px; transition: width 0.4s; }
+.sc-trend { font-size: 13px; color: var(--muted); text-align: right; }
+.sc-trend.up { color: var(--green); }
+.sc-trend.down { color: var(--red); }
+.sc-trend.flat { color: var(--muted); }
+.sc-header {
+  display: grid; grid-template-columns: 200px 80px 80px 1fr 80px;
+  gap: 16px; padding: 0 20px 8px;
+  font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ─── ACTION PLAN ─── */
+.action-section { margin-bottom: 36px; }
+.action-section-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+  margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
+}
+.urgency-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.urgency-dot.urgent { background: var(--red); box-shadow: 0 0 8px rgba(232,72,85,0.6); }
+.urgency-dot.short { background: var(--orange); }
+.urgency-dot.mid { background: var(--blue); }
+
+.action-table { width: 100%; border-collapse: collapse; }
+.action-table th {
+  font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+  padding: 8px 14px; text-align: left; border-bottom: 1px solid var(--border);
+}
+.action-table td {
+  padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 13.5px; color: rgba(245,247,250,0.8); vertical-align: top; line-height: 1.6;
+}
+.action-table tr:last-child td { border-bottom: none; }
+.action-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  font-size: 11px; font-weight: 600; flex-shrink: 0;
+}
+.action-num.urgent { background: rgba(232,72,85,0.15); color: var(--red); border: 1px solid rgba(232,72,85,0.3); }
+.action-num.short { background: rgba(244,162,97,0.15); color: var(--orange); border: 1px solid rgba(244,162,97,0.3); }
+.action-num.mid { background: rgba(78,168,222,0.15); color: var(--blue); border: 1px solid rgba(78,168,222,0.3); }
+.responsible { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+/* ─── RISK TABLE ─── */
+.risk-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 4px; letter-spacing: 0.5px; }
+.risk-badge.high { background: rgba(232,72,85,0.15); color: var(--red); border: 1px solid rgba(232,72,85,0.25); }
+.risk-badge.mid { background: rgba(244,162,97,0.12); color: var(--orange); border: 1px solid rgba(244,162,97,0.25); }
+.risk-badge.low { background: rgba(76,175,130,0.12); color: var(--green); border: 1px solid rgba(76,175,130,0.2); }
+.risk-badge.q { background: rgba(143,163,191,0.12); color: var(--muted); border: 1px solid rgba(143,163,191,0.2); }
+
+/* ─── NOTE BOXES ─── */
+.note-box {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: rgba(247,203,69,0.06); border-left: 3px solid var(--yellow);
+  border-radius: 0 8px 8px 0; padding: 14px 16px; margin: 12px 0;
+  font-size: 13px; color: rgba(245,247,250,0.75); line-height: 1.6;
+}
+.note-box.warning { background: rgba(232,72,85,0.06); border-color: var(--red); }
+.note-box.info { background: rgba(78,168,222,0.06); border-color: var(--blue); }
+.note-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+/* ─── TWO COLUMN ─── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+/* ─── APPROVAL ─── */
+.approval-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+.approval-card {
+  background: var(--navy2); border: 1px solid var(--border); border-radius: 10px; padding: 28px;
+}
+.approval-card .role { font-size: 11px; color: var(--cyan); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 20px; }
+.sig-line { border-bottom: 1px solid rgba(143,163,191,0.3); margin: 10px 0 6px; height: 32px; }
+.sig-label { font-size: 11px; color: var(--muted); }
+
+/* ─── FOOTER ─── */
+.page-footer {
+  background: var(--navy2); border-top: 1px solid var(--border);
+  padding: 18px 64px; display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: var(--muted);
+}
+
+/* ─── PRINT ─── */
+@media print {
+  #nav { display: none; }
+  main { margin-left: 0; }
+  .section { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="co">Deneme Yatırım Enerji</div>
+    <div class="title">Finansal Analiz<br>2023–2024</div>
+  </div>
+  <a class="nav-item active" href="#cover"><span class="nav-num">01</span> Kapak</a>
+  <a class="nav-item" href="#financial"><span class="nav-num">02</span> Finansal Tablolar</a>
+  <a class="nav-item" href="#ratios"><span class="nav-num">03</span> Oran Analizi</a>
+  <a class="nav-item" href="#findings"><span class="nav-num">04</span> Bulgular</a>
+  <a class="nav-item" href="#risks"><span class="nav-num">05</span> Riskler & TMS Uyum</a>
+  <a class="nav-item" href="#scorecard"><span class="nav-num">06</span> Scorecard</a>
+  <a class="nav-item" href="#action"><span class="nav-num">07</span> Aksiyon Planı</a>
+  <a class="nav-item" href="#approval"><span class="nav-num">08</span> Onay</a>
+  <div class="nav-footer">
+    GİZLİ<br>Yalnızca yönetim kullanımı<br>Mayıs 2025
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════════
+     01. KAPAK
+═══════════════════════════════════════ -->
+<section id="cover" class="section" style="max-width:none; border-bottom:1px solid var(--border);">
+  <div class="cover-inner">
+    <div class="cover-badge"><span></span> Gizli — Yalnızca Yönetim Kullanımı</div>
+    <div class="cover-company">Deneme Yatırım Yenilenebilir Enerji A.Ş.</div>
+    <h1 class="cover-title">Finansal Analiz<br><em>Raporu</em></h1>
+    <p class="cover-subtitle">Karşılaştırmalı Dönem: 2023 – 2024</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><div class="label">Sektör</div><div class="val">Yenilenebilir Enerji</div></div>
+      <div class="cover-meta-item"><div class="label">Rapor Tarihi</div><div class="val">Mayıs 2025</div></div>
+      <div class="cover-meta-item"><div class="label">VKN</div><div class="val">0861319893</div></div>
+    </div>
+    <p style="font-size:12px; color:var(--muted); margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Genel Değerlendirme Skoru</p>
+    <div class="score-grid">
+      <div class="score-card yellow">
+        <div class="label">Likidite</div>
+        <div class="status"><div class="dot yellow"></div>Orta</div>
+      </div>
+      <div class="score-card red">
+        <div class="label">Karlılık</div>
+        <div class="status"><div class="dot red"></div>Zayıf</div>
+      </div>
+      <div class="score-card blue">
+        <div class="label">Borç Yapısı</div>
+        <div class="status"><div class="dot blue"></div>İyi</div>
+      </div>
+      <div class="score-card yellow">
+        <div class="label">Faaliyet Verimliliği</div>
+        <div class="status"><div class="dot yellow"></div>Orta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     01B. YÖNETİCİ ÖZETİ
+═══════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-header">
+    <div class="sec-num">01 — Yönetici Özeti</div>
+    <h2 class="sec-title">Öne Çıkan Bulgular</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="two-col" style="margin-bottom:24px;">
+    <div>
+      <p style="font-size:12px; color:var(--cyan); font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;">✅ Güçlü Yönler</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="background:rgba(76,175,130,0.06); border:1px solid rgba(76,175,130,0.2); border-radius:8px; padding:12px 14px; font-size:13.5px; color:rgba(245,247,250,0.85); line-height:1.6;">Toplam aktif 67,4M₺'den <strong style="color:var(--white)">113,6M₺'ye</strong> ulaşarak <strong style="color:var(--green)">%68,6 büyüme</strong> kaydedildi.</div>
+        <div style="background:rgba(76,175,130,0.06); border:1px solid rgba(76,175,130,0.2); border-radius:8px; padding:12px 14px; font-size:13.5px; color:rgba(245,247,250,0.85); line-height:1.6;">Brüt kar marjı %6,5'ten <strong style="color:var(--green)">%14,1'e</strong> yükselerek enerji sektörü orta bandına girdi.</div>
+        <div style="background:rgba(76,175,130,0.06); border:1px solid rgba(76,175,130,0.2); border-radius:8px; padding:12px 14px; font-size:13.5px; color:rgba(245,247,250,0.85); line-height:1.6;">Özkaynak tabanı 41,6M₺'den <strong style="color:var(--green)">56,3M₺'ye</strong> güçlendi (%35,4 artış).</div>
+        <div style="background:rgba(76,175,130,0.06); border:1px solid rgba(76,175,130,0.2); border-radius:8px; padding:12px 14px; font-size:13.5px; color:rgba(245,247,250,0.85); line-height:1.6;">Faaliyet karı 14,6M₺'den <strong style="color:var(--green)">19,8M₺'ye</strong> yükseldi (%35,9 artış).</div>
+        <div style="background:rgba(76,175,130,0.06); border:1px solid rgba(76,175,130,0.2); border-radius:8px; padding:12px 14px; font-size:13.5px; color:rgba(245,247,250,0.85); line-height:1.6;">2024'te <strong style="color:var(--white)">13,8M₺ UV banka kredisi</strong> kullanılarak finansman yapısı çeşitlendirildi.</div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:12px; color:var(--red); font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;">⚠️ Dikkat Gerektiren Alanlar</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="background:rgba(232,72,85,0.06); border:1px solid rgba(232,72,85,0.2); border-radius:8px; padding:12px 14px; font-size:13.5px; color:rgba(245,247,250,0.85); line-height:1.6;">Satışlar 301,4M₺'den <strong style="color:var(--red)">187,8M₺'ye geriledi</strong> (-%37,7). Gelir modeli köklü biçimde değişti.</div>
+        <div style="background:rgba(232,72,85,0.06); border:1px solid rgba(232,72,85,0.2); border-radius:8px; padding:12px 14px; font-size:13.5px; color:rgba(245,247,250,0.85); line-height:1.6;">Finansman giderleri 3,5M₺'den <strong style="color:var(--red)">9,1M₺'ye fırladı</strong> (+%159,3). Faiz karşılama 4,1x→2,2x.</div>
+        <div style="background:rgba(232,72,85,0.06); border:1px solid rgba(232,72,85,0.2); border-radius:8px; padding:12px 14px; font-size:13.5px; color:rgba(245,247,250,0.85); line-height:1.6;">2024'te enflasyon düzeltme zararı <strong style="color:var(--red)">6,96M₺</strong> gelir tablosuna yansıdı.</div>
+        <div style="background:rgba(232,72,85,0.06); border:1px solid rgba(232,72,85,0.2); border-radius:8px; padding:12px 14px; font-size:13.5px; color:rgba(245,247,250,0.85); line-height:1.6;">KV ticari borçlar 12,7M₺'den <strong style="color:var(--red)">43,2M₺'ye sıçradı</strong> (+%239,6).</div>
+        <div style="background:rgba(232,72,85,0.06); border:1px solid rgba(232,72,85,0.2); border-radius:8px; padding:12px 14px; font-size:13.5px; color:rgba(245,247,250,0.85); line-height:1.6;">Duran varlıklardaki <strong style="color:var(--red)">31M₺ 'Diğer Alacaklar'</strong> kaleminin niteliği belirsiz.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:rgba(232,72,85,0.07); border:1px solid rgba(232,72,85,0.25); border-radius:10px; padding:18px 22px;">
+    <p style="font-size:12px; color:var(--red); font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:10px;">🔴 Kritik Riskler</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+      <div style="font-size:13.5px; color:rgba(245,247,250,0.8); line-height:1.6;">Net kar marjı %2,9'dan <strong style="color:#FF8A94">%1,6'ya geriledi</strong> — her iki dönem de 'Zayıf' bandında.</div>
+      <div style="font-size:13.5px; color:rgba(245,247,250,0.8); line-height:1.6;">%100 tek ortaklı yapı — kurumsal yönetim ve bağımsız denetim eksikliği <strong style="color:#FF8A94">risk oluşturuyor.</strong></div>
+      <div style="font-size:13.5px; color:rgba(245,247,250,0.8); line-height:1.6;">Yenilenebilir enerji sektöründe <strong style="color:#FF8A94">döviz pozisyonu sıfır</strong> — dikkat çekici bir durum.</div>
+    </div>
+  </div>
+
+  <div class="note-box info" style="margin-top:20px;">
+    <span class="note-icon">ℹ</span>
+    <span><strong style="color:var(--white)">Sonuç ve Öneri:</strong> Şirket güçlü aktif büyümesi ve faaliyet karı artışına karşın yüksek finansman giderleri, satış gelirlerindeki keskin düşüş ve zayıf net kar marjları ile karmaşık bir tablo sergilemektedir. Kısa vadede finansman gideri yönetimi, şeffaf bilanço dipnotu açıklamaları ve nakit akış tablosunun hazırlanması öncelikli aksiyon alanlarıdır.</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     02. FİNANSAL TABLOLAR
+═══════════════════════════════════════ -->
+<section id="financial" class="section">
+  <div class="sec-header">
+    <div class="sec-num">02 — Finansal Tablolar</div>
+    <h2 class="sec-title">Bilanço & Gelir Tablosu</h2>
+    <div class="divider"></div>
+  </div>
+
+  <!-- KPI Kartları -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Aktif Toplam</div>
+      <div class="kpi-val">113,6M₺</div>
+      <div class="kpi-chg" style="color:var(--green)">↑ +68,6% (2023: 67,4M₺)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Net Satışlar</div>
+      <div class="kpi-val">187,8M₺</div>
+      <div class="kpi-chg" style="color:var(--red)">↓ -37,7% (2023: 301,4M₺)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Özkaynak</div>
+      <div class="kpi-val">56,3M₺</div>
+      <div class="kpi-chg" style="color:var(--green)">↑ +35,4% (2023: 41,6M₺)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Dönem Net Karı</div>
+      <div class="kpi-val">3,0M₺</div>
+      <div class="kpi-chg" style="color:var(--red)">↓ -65,5% (2023: 8,7M₺)</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <!-- Bilanço -->
+    <div>
+      <div class="table-wrap">
+        <div class="table-title">Bilanço Özeti (Karşılaştırmalı)</div>
+        <table class="report-table">
+          <thead><tr><th>Kalem</th><th>2023 (₺)</th><th>2024 (₺)</th><th>Değ.%</th></tr></thead>
+          <tbody>
+            <tr class="strong"><td>AKTİF TOPLAM</td><td>67.361.204</td><td>113.555.443</td><td><span class="chg pos">+68,6%</span></td></tr>
+            <tr><td style="padding-left:22px; color:var(--muted)">Dönen Varlıklar</td><td>18.787.740</td><td>56.705.723</td><td><span class="chg pos">+201,8%</span></td></tr>
+            <tr><td style="padding-left:34px; font-size:12.5px; color:var(--muted)">Hazır Değerler</td><td style="font-size:12.5px;">10.865.938</td><td style="font-size:12.5px;">9.426.379</td><td><span class="chg neg" style="font-size:11px;">-13,3%</span></td></tr>
+            <tr><td style="padding-left:34px; font-size:12.5px; color:var(--muted)">Ticari Alacaklar</td><td style="font-size:12.5px;">3.311.685</td><td style="font-size:12.5px;">19.398.816</td><td><span class="chg pos" style="font-size:11px;">+485,8%</span></td></tr>
+            <tr><td style="padding-left:34px; font-size:12.5px; color:var(--muted)">Stoklar + Avanslar</td><td style="font-size:12.5px;">1.010.000</td><td style="font-size:12.5px;">6.821.441</td><td><span class="chg pos" style="font-size:11px;">+575,4%</span></td></tr>
+            <tr><td style="padding-left:22px; color:var(--muted)">Duran Varlıklar</td><td>48.573.464</td><td>56.849.720</td><td><span class="chg pos">+17,0%</span></td></tr>
+            <tr><td style="padding-left:34px; font-size:12.5px; color:var(--muted)">Diğer Alacaklar (UV)</td><td style="font-size:12.5px; color:var(--orange);">31.000.000</td><td style="font-size:12.5px; color:var(--orange);">24.445.440</td><td><span class="chg neg" style="font-size:11px;">-21,1%</span></td></tr>
+            <tr><td style="padding-left:34px; font-size:12.5px; color:var(--muted)">Maddi Duran Varlıklar</td><td style="font-size:12.5px;">17.571.552</td><td style="font-size:12.5px;">32.402.368</td><td><span class="chg pos" style="font-size:11px;">+84,4%</span></td></tr>
+            <tr class="strong"><td>PASİF TOPLAM</td><td>67.361.204</td><td>113.555.443</td><td><span class="chg pos">+68,6%</span></td></tr>
+            <tr><td style="padding-left:22px; color:var(--muted)">KV Yabancı Kaynaklar</td><td>15.810.133</td><td>43.536.071</td><td><span class="chg neg">+175,4%</span></td></tr>
+            <tr><td style="padding-left:34px; font-size:12.5px; color:var(--muted)">Ticari Borçlar (KV)</td><td style="font-size:12.5px; color:var(--red);">12.727.568</td><td style="font-size:12.5px; color:var(--red);">43.168.262</td><td><span class="chg neg" style="font-size:11px;">+239,2%</span></td></tr>
+            <tr><td style="padding-left:22px; color:var(--muted)">UV Yabancı Kaynaklar</td><td>10.000.000</td><td>13.753.055</td><td><span class="chg pos">+37,5%</span></td></tr>
+            <tr class="strong"><td>Özkaynak Toplamı</td><td>41.551.071</td><td>56.266.317</td><td><span class="chg pos">+35,4%</span></td></tr>
+            <tr><td style="padding-left:22px; font-size:12.5px; color:var(--muted)">Ödenmiş Sermaye</td><td style="font-size:12.5px;">31.905.801</td><td style="font-size:12.5px;">41.006.724</td><td><span class="chg pos" style="font-size:11px;">+28,5%</span></td></tr>
+            <tr><td style="padding-left:22px; font-size:12.5px; color:var(--muted)">Dönem Net Karı</td><td style="font-size:12.5px;">8.737.356</td><td style="font-size:12.5px;">3.016.756</td><td><span class="chg neg" style="font-size:11px;">-65,5%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Gelir Tablosu -->
+    <div>
+      <div class="table-wrap">
+        <div class="table-title">Gelir Tablosu Özeti (Karşılaştırmalı)</div>
+        <table class="report-table">
+          <thead><tr><th>Kalem</th><th>2023 (₺)</th><th>2024 (₺)</th><th>Değ.%</th></tr></thead>
+          <tbody>
+            <tr class="strong"><td>NET SATIŞLAR</td><td>301.427.363</td><td>187.817.830</td><td><span class="chg neg">-37,7%</span></td></tr>
+            <tr><td style="color:var(--muted)">Satışların Maliyeti</td><td>281.716.083</td><td>161.376.538</td><td><span class="chg pos">-42,7%</span></td></tr>
+            <tr class="strong"><td>BRÜT KAR</td><td>19.711.280</td><td>26.441.292</td><td><span class="chg pos">+34,1%</span></td></tr>
+            <tr><td style="color:var(--muted)">Faaliyet Giderleri</td><td>5.121.578</td><td>6.609.539</td><td><span class="chg neg">+29,1%</span></td></tr>
+            <tr class="strong"><td>FAALİYET KARI (EBIT)</td><td>14.589.702</td><td>19.831.753</td><td><span class="chg pos">+35,9%</span></td></tr>
+            <tr><td style="color:var(--muted)">+ Amortisman (tahmini)</td><td>1.146.656</td><td>3.621.385</td><td><span class="chg neg">+215,8%</span></td></tr>
+            <tr class="strong"><td>EBITDA</td><td>15.736.358</td><td>23.453.138</td><td><span class="chg pos">+49,0%</span></td></tr>
+            <tr><td style="color:var(--orange)">Enflasyon Düz. Zararı</td><td>—</td><td style="color:var(--orange);">6.956.149</td><td>—</td></tr>
+            <tr><td style="color:var(--red)">Finansman Giderleri</td><td>3.526.967</td><td style="color:var(--red);">9.145.717</td><td><span class="chg neg">+159,3%</span></td></tr>
+            <tr class="strong"><td>DÖNEM KARI</td><td>11.649.808</td><td>4.022.341</td><td><span class="chg neg">-65,5%</span></td></tr>
+            <tr><td style="color:var(--muted)">Vergi Karşılığı</td><td>2.912.452</td><td>1.005.585</td><td><span class="chg pos">-65,5%</span></td></tr>
+            <tr class="strong"><td>DÖNEM NET KARI</td><td style="color:var(--green);">8.737.356</td><td style="color:var(--orange);">3.016.756</td><td><span class="chg neg">-65,5%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     03. ORAN ANALİZİ
+═══════════════════════════════════════ -->
+<section id="ratios" class="section">
+  <div class="sec-header">
+    <div class="sec-num">03 — Oran Analizi</div>
+    <h2 class="sec-title">Sektör Benchmark Karşılaştırması</h2>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Likidite -->
+  <div style="margin-bottom:28px;">
+    <p style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-bottom:12px;">3.1 — Likidite Oranları</p>
+    <div class="table-wrap">
+      <table class="report-table">
+        <thead><tr><th>Oran</th><th>2023</th><th>Durum</th><th>2024</th><th>Durum</th><th>Benchmark</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Cari Oran</td>
+            <td>1,19x</td>
+            <td><span class="sts orta"><span class="dot yellow"></span>Orta</span></td>
+            <td>1,30x</td>
+            <td><span class="sts iyi"><span class="dot blue"></span>İyi</span></td>
+            <td style="color:var(--muted); font-size:12px;">İyi: 1,20–1,50</td>
+          </tr>
+          <tr>
+            <td>Nakit Oranı</td>
+            <td>0,69</td>
+            <td><span class="sts orta"><span class="dot yellow"></span>Orta</span></td>
+            <td>0,22</td>
+            <td><span class="sts zayif"><span class="dot red"></span>Zayıf</span></td>
+            <td style="color:var(--muted); font-size:12px;">İyi: &gt;0,50</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box">
+      <span class="note-icon">📌</span>
+      <span>2023'te Alınan Çekler (10.000.000₺) hazır değerlerin büyük bölümünü oluşturmaktadır. Bu kalemin tahsilat güvencesi ve karşı taraf riski değerlendirilmelidir. 2024'te alınan çekler 8,5M₺ seviyesindedir.</span>
+    </div>
+  </div>
+
+  <!-- Karlılık -->
+  <div style="margin-bottom:28px;">
+    <p style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-bottom:12px;">3.2 — Karlılık Oranları</p>
+    <div class="table-wrap">
+      <table class="report-table">
+        <thead><tr><th>Oran</th><th>2023</th><th>Durum</th><th>2024</th><th>Durum</th><th>Benchmark</th></tr></thead>
+        <tbody>
+          <tr><td>Brüt Kar Marjı</td><td>%6,54</td><td><span class="sts kritik">⛔ Kritik</span></td><td>%14,08</td><td><span class="sts kritik">⛔ Kritik</span></td><td style="color:var(--muted); font-size:12px;">İyi: &gt;35%</td></tr>
+          <tr><td>EBITDA Marjı</td><td>%5,22</td><td><span class="sts kritik">⛔ Kritik</span></td><td>%12,49</td><td><span class="sts kritik">⛔ Kritik</span></td><td style="color:var(--muted); font-size:12px;">İyi: &gt;35%</td></tr>
+          <tr><td>Net Kar Marjı</td><td>%2,90</td><td><span class="sts zayif"><span class="dot red"></span>Zayıf</span></td><td>%1,61</td><td><span class="sts zayif"><span class="dot red"></span>Zayıf</span></td><td style="color:var(--muted); font-size:12px;">İyi: 12–20%</td></tr>
+          <tr><td>Özkaynak Karlılığı (ROE)</td><td>%21,03</td><td><span class="sts cok-iyi"><span class="dot" style="background:var(--cyan)"></span>Çok İyi</span></td><td>%5,36</td><td><span class="sts zayif"><span class="dot red"></span>Zayıf</span></td><td style="color:var(--muted); font-size:12px;">İyi: 10–15%</td></tr>
+          <tr><td>Varlık Devir Hızı</td><td>4,47x</td><td><span class="sts cok-iyi"><span class="dot" style="background:var(--cyan)"></span>Çok İyi</span></td><td>1,65x</td><td><span class="sts cok-iyi"><span class="dot" style="background:var(--cyan)"></span>Çok İyi</span></td><td style="color:var(--muted); font-size:12px;">İyi: 0,35–0,50</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box">
+      <span class="note-icon">📌</span>
+      <span>2023 yılında satışların %93,5'ini maliyet oluşturmaktadır. 2024'te hizmet odaklı modele geçiş brüt marjı önemli ölçüde iyileştirmiştir. Nakit akış tablosu yokluğunda kesin EBITDA tespiti mümkün olmamaktadır.</span>
+    </div>
+  </div>
+
+  <!-- Borç Yapısı -->
+  <div style="margin-bottom:28px;">
+    <p style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-bottom:12px;">3.3 — Borç / Kaldıraç Oranları</p>
+    <div class="table-wrap">
+      <table class="report-table">
+        <thead><tr><th>Oran</th><th>2023</th><th>Durum</th><th>2024</th><th>Durum</th><th>Benchmark</th></tr></thead>
+        <tbody>
+          <tr><td>Borç / Özkaynak</td><td>0,62x</td><td><span class="sts cok-iyi"><span class="dot" style="background:var(--cyan)"></span>Çok İyi</span></td><td>1,02x</td><td><span class="sts iyi"><span class="dot blue"></span>İyi</span></td><td style="color:var(--muted); font-size:12px;">İyi: 1,00–1,50</td></tr>
+          <tr><td>Faiz Karşılama</td><td>4,14x</td><td><span class="sts cok-iyi"><span class="dot" style="background:var(--cyan)"></span>Çok İyi</span></td><td>2,17x</td><td><span class="sts orta"><span class="dot yellow"></span>Orta</span></td><td style="color:var(--muted); font-size:12px;">İyi: &gt;3x</td></tr>
+          <tr><td>Net Borç / EBITDA</td><td>0,95</td><td><span class="sts orta"><span class="dot yellow"></span>Orta</span></td><td>2,04</td><td><span class="sts iyi"><span class="dot blue"></span>İyi</span></td><td style="color:var(--muted); font-size:12px;">&lt;3,5x sağlıklı</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box warning">
+      <span class="note-icon">⚠️</span>
+      <span>2024'te faiz giderlerindeki sıçrama (%159) izlenmesi gereken kritik bir risktir. Faiz karşılama oranı 4,1x'ten 2,2x'e gerilemiş olmakla birlikte hâlâ DSCR &gt;1,20 eşiğinin üzerindedir.</span>
+    </div>
+  </div>
+
+  <!-- Faaliyet -->
+  <div>
+    <p style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-bottom:12px;">3.4 — Faaliyet / Verimlilik Oranları</p>
+    <div class="table-wrap">
+      <table class="report-table">
+        <thead><tr><th>Oran</th><th>2023</th><th>Durum</th><th>2024</th><th>Durum</th><th>Benchmark</th></tr></thead>
+        <tbody>
+          <tr><td>Alacak Tahsilat Süresi</td><td>4,01 gün</td><td><span class="sts cok-iyi"><span class="dot" style="background:var(--cyan)"></span>Çok İyi</span></td><td>37,70 gün</td><td><span class="sts iyi"><span class="dot blue"></span>İyi</span></td><td style="color:var(--muted); font-size:12px;">&lt;45 gün iyi</td></tr>
+          <tr><td>Varlık Devir Hızı</td><td>4,47x</td><td><span class="sts cok-iyi"><span class="dot" style="background:var(--cyan)"></span>Çok İyi</span></td><td>1,65x</td><td><span class="sts cok-iyi"><span class="dot" style="background:var(--cyan)"></span>Çok İyi</span></td><td style="color:var(--muted); font-size:12px;">İyi: 0,35–0,50</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     04. BULGULAR
+═══════════════════════════════════════ -->
+<section id="findings" class="section">
+  <div class="sec-header">
+    <div class="sec-num">04 — Bulgular</div>
+    <h2 class="sec-title">Tespit ve Bulgular</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="findings-grid">
+
+    <div class="finding-card" style="border-left:3px solid var(--red);">
+      <div>
+        <div class="finding-id">B-01</div>
+        <span class="priority-badge high">Yüksek</span>
+      </div>
+      <div>
+        <div class="finding-area">Satış Geliri</div>
+        <div class="finding-title">Gelir Modeli Köklü Biçimde Değişti</div>
+        <div class="finding-desc">Satışlar 301,4M₺'den 187,8M₺'ye geriledi (-%37,7). 2023'te mamul, ticari mal ve hizmet kombinasyonu varken 2024'te yalnızca hizmet maliyeti bulunmaktadır. Bu geçiş şeffaf açıklanmamıştır.</div>
+      </div>
+      <div>
+        <div class="finding-rec-label">Öneri / Aksiyon</div>
+        <div class="finding-rec">Gelir dönüşümünün (trading → hizmet modeli) yönetim kararı, müşteri portföyü ve yeni model sürdürülebilirliği hakkında dipnot/yönetim açıklaması talep edilmelidir.</div>
+      </div>
+    </div>
+
+    <div class="finding-card" style="border-left:3px solid var(--red);">
+      <div>
+        <div class="finding-id">B-02</div>
+        <span class="priority-badge high">Yüksek</span>
+      </div>
+      <div>
+        <div class="finding-area">Finansman Giderleri</div>
+        <div class="finding-title">Faiz Giderlerinde %159 Artış</div>
+        <div class="finding-desc">Finansman giderleri 3,5M₺'den 9,1M₺'ye çıkmıştır (+%159,3). Kısa vadeli borçlanma gideri kalemi 2024'te hem KV hem UV kredi içerdiğinden sınıflandırma incelenmelidir.</div>
+      </div>
+      <div>
+        <div class="finding-rec-label">Öneri / Aksiyon</div>
+        <div class="finding-rec">TFRS 16 ve TMS 23 kapsamında kredi maliyetleri sorgulanmalıdır. Faiz kaldıraç planı hazırlanmalıdır.</div>
+      </div>
+    </div>
+
+    <div class="finding-card" style="border-left:3px solid var(--red);">
+      <div>
+        <div class="finding-id">B-03</div>
+        <span class="priority-badge high">Yüksek</span>
+      </div>
+      <div>
+        <div class="finding-area">Duran Varlık Alacakları</div>
+        <div class="finding-title">31M₺ Açıklanamayan Alacak Kalemi</div>
+        <div class="finding-desc">'Diğer Çeşitli Alacaklar (UV)' kalemi 2023'te 31M₺, 2024'te 24,4M₺'dir. Toplam aktifin %22'sine denk bu kalemin niteliği (kredi, teminat, ortaklık avansı?) belirsizdir.</div>
+      </div>
+      <div>
+        <div class="finding-rec-label">Öneri / Aksiyon</div>
+        <div class="finding-rec">İlişkili taraf işlemi niteliği (TMS 24) ve tahsilat riski değerlendirilmeli. Dipnot açıklaması zorunludur.</div>
+      </div>
+    </div>
+
+    <div class="finding-card" style="border-left:3px solid var(--orange);">
+      <div>
+        <div class="finding-id">B-04</div>
+        <span class="priority-badge mid">Orta</span>
+      </div>
+      <div>
+        <div class="finding-area">Enflasyon Muhasebesi</div>
+        <div class="finding-title">TMS 29 Karşılaştırmalı Sunum Eksikliği</div>
+        <div class="finding-desc">2024'te 6,96M₺ enflasyon düzeltmesi zararı raporlanmış, ancak 2023 verileri düzeltilmemiş görünmektedir.</div>
+      </div>
+      <div>
+        <div class="finding-rec-label">Öneri / Aksiyon</div>
+        <div class="finding-rec">TMS 29 karşılaştırmalı sunum zorunluluğu gereği 2023 finansal tabloları yeniden sunulmalı; nominal/reel ayrıştırması yapılmalıdır.</div>
+      </div>
+    </div>
+
+    <div class="finding-card" style="border-left:3px solid var(--orange);">
+      <div>
+        <div class="finding-id">B-05</div>
+        <span class="priority-badge mid">Orta</span>
+      </div>
+      <div>
+        <div class="finding-area">KV Ticari Borç Artışı</div>
+        <div class="finding-title">Satıcı Borçları 3,4 Kat Arttı</div>
+        <div class="finding-desc">Ticari borçlar 12,7M₺'den 43,2M₺'ye sıçramıştır. Net satışların %23'üne denk bu borç yükü ödeme gücü baskısı yaratabilir.</div>
+      </div>
+      <div>
+        <div class="finding-rec-label">Öneri / Aksiyon</div>
+        <div class="finding-rec">Satıcı vade analizi yapılmalı, erken ödeme iskontolarından yararlanılmalı ve nakit akışı tahmin modeli kurulmalıdır.</div>
+      </div>
+    </div>
+
+    <div class="finding-card" style="border-left:3px solid var(--orange);">
+      <div>
+        <div class="finding-id">B-06</div>
+        <span class="priority-badge mid">Orta</span>
+      </div>
+      <div>
+        <div class="finding-area">Nakit Akış Tablosu</div>
+        <div class="finding-title">Her İki Dönemde Tablo Yok</div>
+        <div class="finding-desc">Her iki dönemde nakit akış tablosu mevcut değildir. Serbest nakit akışı hesaplanamamaktadır.</div>
+      </div>
+      <div>
+        <div class="finding-rec-label">Öneri / Aksiyon</div>
+        <div class="finding-rec">TMS 7 uyarınca nakit akış tablosu hazırlanmalı ve standart bir raporlama seti oluşturulmalıdır.</div>
+      </div>
+    </div>
+
+    <div class="finding-card" style="border-left:3px solid var(--muted);">
+      <div>
+        <div class="finding-id">B-07</div>
+        <span class="priority-badge low">Düşük</span>
+      </div>
+      <div>
+        <div class="finding-area">Kuruluş Giderleri</div>
+        <div class="finding-title">TMS 38 Politika Uyumsuzluğu</div>
+        <div class="finding-desc">1.912₺ 'Kuruluş ve Örgütlenme Giderleri' maddi olmayan duran varlık olarak taşınmaktadır. TMS 38 kapsamında bu giderlerin aktifleştirilmesi uygun değildir.</div>
+      </div>
+      <div>
+        <div class="finding-rec-label">Öneri / Aksiyon</div>
+        <div class="finding-rec">Tutar düşük olmakla birlikte standart uyum açısından gider yazılmalıdır.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     05. RİSKLER & TMS UYUM
+═══════════════════════════════════════ -->
+<section id="risks" class="section">
+  <div class="sec-header">
+    <div class="sec-num">05 — Özel Konular</div>
+    <h2 class="sec-title">Riskler & TMS/TFRS Uyum</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div style="margin-bottom:28px;">
+    <p style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-bottom:12px;">5.1 — TMS/TFRS Uyum Değerlendirmesi</p>
+    <div class="table-wrap">
+      <table class="report-table">
+        <thead><tr><th>Standart</th><th>Durum</th><th>Risk Seviyesi</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500; white-space:nowrap;">TMS 29 — Enflasyon</td>
+            <td>2024'te enflasyon düzeltmesi zararı raporlanmıştır. Ancak 2023 verilerinin karşılaştırmalı düzeltmesi yapılmamış görünmektedir.</td>
+            <td><span class="risk-badge mid">⚠️ Orta</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500; white-space:nowrap;">TFRS 16 — Kiralama</td>
+            <td>Bilançoda kullanım hakkı varlığı veya kira yükümlülüğü kalemi bulunmamaktadır. Kira envanteri incelenmeli.</td>
+            <td><span class="risk-badge q">❓ Belirsiz</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500; white-space:nowrap;">TMS 38 — Mad. Olmayan DV</td>
+            <td>Kuruluş ve örgütlenme giderleri aktifleştirilmiş durumdadır. TMS 38 kapsamında kabul edilmemektedir.</td>
+            <td><span class="risk-badge low">🔴 Düşük Tutar</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500; white-space:nowrap;">TMS 7 — Nakit Akış</td>
+            <td>Nakit akış tablosu hazırlanmamıştır. Tam set finansal tablolar için zorunlu bileşendir.</td>
+            <td><span class="risk-badge mid">🔴 Orta — Zorunlu</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500; white-space:nowrap;">TMS 24 — İlişkili Taraflar</td>
+            <td>Ortaklara borçlar (2023: 280.000₺), duran varlıktaki 31M₺ alacak ilişkili taraf niteliği taşıyabilir.</td>
+            <td><span class="risk-badge high">⚠️ Yüksek</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <p style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-bottom:12px;">5.2 — Döviz Pozisyonu</p>
+      <div class="note-box warning">
+        <span class="note-icon">⚠️</span>
+        <span>Her iki dönemde (2023–2024) yabancı para pozisyonu sıfırdır. Yenilenebilir enerji sektöründe makine-teçhizat alımları genellikle döviz cinsinden gerçekleştirilir. Bu durumun gerçeği yansıtıp yansıtmadığı ya da TMS 21 kapsamında doğru sınıflandırılıp sınıflandırılmadığı sorgulanmalıdır.</span>
+      </div>
+
+      <p style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-bottom:12px; margin-top:20px;">5.3 — Sahiplik & Kurumsal Yönetim</p>
+      <div class="note-box warning">
+        <span class="note-icon">⚠️</span>
+        <span>Şirketin %100 hissesi tek bir gerçek kişiye (Muhammed Balkaya) aittir. Yönetim kurulu bağımsız üye yokluğu ve tek ortaklı yapı kurumsal yönetim riskleri açısından değerlendirilmelidir. Özellikle büyük bakiyeli ilişkili taraf işlemlerinin bağımsız denetimle desteklenmesi önerilir.</span>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-bottom:12px;">5.4 — Vergisel Durum</p>
+      <div class="table-wrap">
+        <table class="report-table">
+          <thead><tr><th>Kalem</th><th>2023</th><th>2024</th></tr></thead>
+          <tbody>
+            <tr><td>KV Matrahı</td><td>9.676.539₺</td><td>4.044.939₺</td></tr>
+            <tr><td>Hesaplanan KV</td><td>2.419.135₺</td><td>1.011.235₺</td></tr>
+            <tr><td>Ödenmesi Gereken KV</td><td>227.895₺</td><td>206.667₺</td></tr>
+            <tr><td style="color:var(--cyan);">Nakdi Sermaye Faiz İndirimi</td><td style="color:var(--cyan);">1.973.269₺</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note-box info">
+        <span class="note-icon">ℹ</span>
+        <span>Nakdi sermaye artışından sağlanan vergi avantajının (KVK Mad. 10/1-ı) sürdürülebilirliği değerlendirilmelidir; 2024 beyannamesi bu indirimden yararlanmamıştır.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     06. SCORECARD
+═══════════════════════════════════════ -->
+<section id="scorecard" class="section">
+  <div class="sec-header">
+    <div class="sec-num">06 — Özet Puan Kartı</div>
+    <h2 class="sec-title">Scorecard — Genel Değerlendirme</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div style="background:rgba(0,200,180,0.06); border:1px solid rgba(0,200,180,0.2); border-radius:10px; padding:18px 24px; margin-bottom:28px; display:flex; align-items:center; justify-content:space-between;">
+    <div>
+      <p style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Genel Toplam Puan (Ağırlıklı)</p>
+      <p style="font-family:'DM Serif Display',serif; font-size:42px; color:var(--white); line-height:1;">5,10 <span style="font-size:18px; color:var(--yellow);">/ 10</span></p>
+    </div>
+    <div style="text-align:right;">
+      <span class="sts orta" style="font-size:15px; padding:8px 18px;"><span class="dot yellow"></span>ORTA Bant</span>
+      <p style="font-size:12px; color:var(--muted); margin-top:8px;">2023: 5,15 → 2024: 5,10</p>
+    </div>
+  </div>
+
+  <div class="sc-header">
+    <span>Değerlendirme Alanı</span>
+    <span style="text-align:center;">Ağırlık</span>
+    <span style="text-align:center;">Puan</span>
+    <span>Görsel</span>
+    <span style="text-align:right;">Trend</span>
+  </div>
+
+  <div class="scorecard-grid">
+    <div class="scorecard-row">
+      <div class="sc-label">Likidite Yönetimi</div>
+      <div class="sc-weight">%20</div>
+      <div class="sc-score" style="color:var(--yellow);">5</div>
+      <div class="sc-bar"><div class="sc-bar-fill" style="width:50%; background:var(--yellow);"></div></div>
+      <div class="sc-trend flat">→ Sabit</div>
+    </div>
+    <div class="scorecard-row">
+      <div class="sc-label">Karlılık</div>
+      <div class="sc-weight">%25</div>
+      <div class="sc-score" style="color:var(--orange);">5</div>
+      <div class="sc-bar"><div class="sc-bar-fill" style="width:50%; background:var(--orange);"></div></div>
+      <div class="sc-trend up">↑ Brüt marj iyileşti</div>
+    </div>
+    <div class="scorecard-row">
+      <div class="sc-label">Borç ve Kaldıraç</div>
+      <div class="sc-weight">%20</div>
+      <div class="sc-score" style="color:var(--blue);">6</div>
+      <div class="sc-bar"><div class="sc-bar-fill" style="width:60%; background:var(--blue);"></div></div>
+      <div class="sc-trend down">↓ Faiz riski arttı</div>
+    </div>
+    <div class="scorecard-row">
+      <div class="sc-label">Faaliyet Verimliliği</div>
+      <div class="sc-weight">%20</div>
+      <div class="sc-score" style="color:var(--yellow);">5</div>
+      <div class="sc-bar"><div class="sc-bar-fill" style="width:50%; background:var(--yellow);"></div></div>
+      <div class="sc-trend down">↓ Satış geriledi</div>
+    </div>
+    <div class="scorecard-row">
+      <div class="sc-label">TMS/TFRS Uyumu</div>
+      <div class="sc-weight">%10</div>
+      <div class="sc-score" style="color:var(--orange);">5</div>
+      <div class="sc-bar"><div class="sc-bar-fill" style="width:50%; background:var(--orange);"></div></div>
+      <div class="sc-trend flat">→ Kısmi iyileşme</div>
+    </div>
+    <div class="scorecard-row">
+      <div class="sc-label">Nakit Akış Kalitesi</div>
+      <div class="sc-weight">%5</div>
+      <div class="sc-score" style="color:var(--red);">3</div>
+      <div class="sc-bar"><div class="sc-bar-fill" style="width:30%; background:var(--red);"></div></div>
+      <div class="sc-trend flat">→ Tablo hazırlanmamış</div>
+    </div>
+    <div class="scorecard-row total">
+      <div class="sc-label" style="color:var(--cyan);">GENEL TOPLAM</div>
+      <div class="sc-weight" style="color:var(--cyan);">%100</div>
+      <div class="sc-score" style="color:var(--yellow); font-size:26px;">5,10</div>
+      <div class="sc-bar"><div class="sc-bar-fill" style="width:51%; background:linear-gradient(90deg,var(--cyan),var(--yellow));"></div></div>
+      <div class="sc-trend flat" style="color:var(--yellow);">→ ORTA Bant</div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px; font-size:12px; color:var(--muted); display:flex; gap:20px; flex-wrap:wrap;">
+    <span>Puan skalası:</span>
+    <span style="color:var(--cyan);">8–10 Çok İyi</span>
+    <span style="color:var(--green);">6–8 İyi</span>
+    <span style="color:var(--yellow);">4–6 Orta</span>
+    <span style="color:var(--orange);">2–4 Zayıf</span>
+    <span style="color:var(--red);">0–2 Kritik</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     07. AKSİYON PLANI
+═══════════════════════════════════════ -->
+<section id="action" class="section">
+  <div class="sec-header">
+    <div class="sec-num">07 — Aksiyon Planı</div>
+    <h2 class="sec-title">Yönetim Önerileri & Aksiyon Planı</h2>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Acil -->
+  <div class="action-section">
+    <div class="action-section-title" style="color:var(--red);">
+      <span class="urgency-dot urgent"></span>
+      🚨 Acil (0–1 Ay)
+    </div>
+    <div class="table-wrap">
+      <table class="action-table">
+        <thead><tr><th>#</th><th>Aksiyon</th><th>Sorumlu / Süre</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="action-num urgent">1</span></td>
+            <td>Duran varlıklardaki 31M₺ / 24,4M₺ 'Diğer Çeşitli Alacaklar' kaleminin niteliği (ilişkili taraf işlemi, kredi, avans?) ve tahsilat planı SMMM ile müzakere edilmeli; TMS 24 kapsamında dipnot hazırlanmalıdır.</td>
+            <td><span class="responsible">CFO / SMMM<br>2 Hafta</span></td>
+          </tr>
+          <tr>
+            <td><span class="action-num urgent">2</span></td>
+            <td>2023 yılına ait TMS 29 enflasyon düzeltmesi karşılaştırmalı sunum zorunluluğu gereği yeniden yapılmalı veya düzeltme yapılmadıysa sebebi açıklanmalıdır.</td>
+            <td><span class="responsible">SMMM / Denetçi<br>1 Ay</span></td>
+          </tr>
+          <tr>
+            <td><span class="action-num urgent">3</span></td>
+            <td>Finansman giderlerindeki %159 artışın kırılımı (faiz türü, vade, döviz/TL ayrımı) tablo halinde yönetim önüne getirilmeli; faiz riskine karşı hedging planı değerlendirilmelidir.</td>
+            <td><span class="responsible">CFO<br>2 Hafta</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Kısa Vade -->
+  <div class="action-section">
+    <div class="action-section-title" style="color:var(--orange);">
+      <span class="urgency-dot short"></span>
+      📅 Kısa Vade (1–3 Ay)
+    </div>
+    <div class="table-wrap">
+      <table class="action-table">
+        <thead><tr><th>#</th><th>Aksiyon</th><th>Sorumlu / Süre</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="action-num short">1</span></td>
+            <td>TMS 7 kapsamında hem 2023 hem 2024 nakit akış tabloları dolaylı yöntemle hazırlanmalı; serbest nakit akışı ve işletme nakit akışı şeffaf raporlanmalıdır.</td>
+            <td><span class="responsible">SMMM<br>2 Ay</span></td>
+          </tr>
+          <tr>
+            <td><span class="action-num short">2</span></td>
+            <td>43M₺'ye ulaşan kısa vadeli ticari borçlar için satıcı vade analizi yapılmalı, olası erken ödeme iskontolarından yararlanılmalı ve nakit akışı tahmin modeli kurulmalıdır.</td>
+            <td><span class="responsible">CFO / Finans Ekibi<br>3 Ay</span></td>
+          </tr>
+          <tr>
+            <td><span class="action-num short">3</span></td>
+            <td>Kuruluş ve örgütlenme giderleri (1.912₺) TMS 38 uyumuna göre gider yazılmalı; maddi olmayan duran varlıklar kalemi temizlenmelidir.</td>
+            <td><span class="responsible">SMMM<br>1 Ay</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Orta Vade -->
+  <div class="action-section">
+    <div class="action-section-title" style="color:var(--blue);">
+      <span class="urgency-dot mid"></span>
+      📊 Orta Vade (3–6 Ay)
+    </div>
+    <div class="table-wrap">
+      <table class="action-table">
+        <thead><tr><th>#</th><th>Aksiyon</th><th>Sorumlu / Süre</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="action-num mid">1</span></td>
+            <td>Satış gelirlerindeki -%37,7 gerilemenin nedenlerini (iş modeli dönüşümü, müşteri kaybı, piyasa koşulları) analiz eden strateji raporu hazırlanmalı ve yönetim kuruluna sunulmalıdır.</td>
+            <td><span class="responsible">CEO / CFO<br>4 Ay</span></td>
+          </tr>
+          <tr>
+            <td><span class="action-num mid">2</span></td>
+            <td>Bağımsız denetim veya en azından sınırlı bağımsız inceleme yaptırılması; ilişkili taraf işlemleri, büyük bakiyeli alacaklar ve enflasyon düzeltmesi konularında üçüncü taraf güvencesi sağlanmalıdır.</td>
+            <td><span class="responsible">Yönetim Kurulu<br>6 Ay</span></td>
+          </tr>
+          <tr>
+            <td><span class="action-num mid">3</span></td>
+            <td>EBITDA marjını sektör 'İyi' bandına (&gt;35%) taşımak için operasyonel verimlilik programı (hizmet maliyeti optimizasyonu, kapasite kullanımı) başlatılmalıdır.</td>
+            <td><span class="responsible">Operasyon Müdürü<br>6 Ay</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     08. ONAY & İMZA
+═══════════════════════════════════════ -->
+<section id="approval" class="section" style="border-bottom:none;">
+  <div class="sec-header">
+    <div class="sec-num">08 — Onay & İmza</div>
+    <h2 class="sec-title">Onay Sayfası</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="approval-grid">
+    <div class="approval-card">
+      <div class="role">Hazırlayan</div>
+      <div style="margin-bottom:16px;">
+        <p style="font-size:12px; color:var(--muted); margin-bottom:4px;">Ad Soyad</p>
+        <div class="sig-line"></div>
+        <p class="sig-label">Unvan: Finansal Analist</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <p style="font-size:12px; color:var(--muted); margin-bottom:4px;">Tarih</p>
+        <div class="sig-line"></div>
+        <p class="sig-label">Mayıs 2025</p>
+      </div>
+      <div>
+        <p style="font-size:12px; color:var(--muted); margin-bottom:4px;">İmza</p>
+        <div class="sig-line"></div>
+      </div>
+    </div>
+
+    <div class="approval-card">
+      <div class="role">Onaylayan</div>
+      <div style="margin-bottom:16px;">
+        <p style="font-size:12px; color:var(--muted); margin-bottom:4px;">Ad Soyad</p>
+        <div class="sig-line"></div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <p style="font-size:12px; color:var(--muted); margin-bottom:4px;">Unvan</p>
+        <div class="sig-line"></div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <p style="font-size:12px; color:var(--muted); margin-bottom:4px;">Tarih</p>
+        <div class="sig-line"></div>
+      </div>
+      <div>
+        <p style="font-size:12px; color:var(--muted); margin-bottom:4px;">İmza</p>
+        <div class="sig-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:36px; background:rgba(232,72,85,0.05); border:1px solid rgba(232,72,85,0.15); border-radius:10px; padding:18px 22px; font-size:13px; color:var(--muted); line-height:1.7;">
+    <strong style="color:var(--white);">⚠️ Gizlilik Notu:</strong> Bu rapor yönetim raporlaması amacıyla hazırlanmış olup gizlilik içerir. Bağımsız denetim veya yasal zorunluluklar için ilgili TMS/TFRS standartlarına ve sektörel düzenleyici kurum rehberlerine başvurulmalıdır. Nakit akış tablosu mevcut olmadığından bazı hesaplamalarda (EBITDA, FCF) yaklaşık değerler kullanılmıştır.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <span>Deneme Yatırım Yenilenebilir Enerji A.Ş. — Finansal Analiz Raporu 2023–2024</span>
+  <span style="color:var(--red); font-weight:600; letter-spacing:1px;">GİZLİ</span>
+  <span>Rapor Tarihi: Mayıs 2025</span>
+</footer>
+
+</main>
+
+<script>
+const navItems = document.querySelectorAll('.nav-item');
+const sections = document.querySelectorAll('section[id], #cover');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id || 'cover';
+      navItems.forEach(item => {
+        item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+
+navItems.forEach(item => {
+  item.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(item.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
